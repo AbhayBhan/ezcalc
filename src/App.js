@@ -1,9 +1,10 @@
 import './css/main.css';
+import { CalcScreen } from './components/CalcScreen';
 
 function App() {
   return (
-    <div className="flex flex-row container justify-center mx-auto">
-      Hello
+    <div>
+      <CalcScreen />
     </div>
   );
 }

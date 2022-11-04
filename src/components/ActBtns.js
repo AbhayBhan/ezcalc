@@ -1,10 +1,25 @@
 import React from 'react';
 import '../css/main.css';
 
-export const ActBtns = ({getData}) => {
+export const ActBtns = ({getData , processData , remData , remallData}) => {
     const onTrigger = (event) => {
         getData(event.target.value);
         event.preventDefault();
+    }
+
+    const onProcessTrigger = (event) => {
+      processData();
+      event.preventDefault();
+    }
+
+    const onClearTrigger = (event) => {
+      remData();
+      event.preventDefault();
+    }
+
+    const onClearAllTrigger = (event) => {
+      remallData();
+      event.preventDefault();
     }
 
   return (
@@ -23,9 +38,9 @@ export const ActBtns = ({getData}) => {
         <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'-'}>-</button>
         <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'/'}>/</button>
         <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'*'}>*</button>
-        <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'C'}>C</button>
-        <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'CE'}>CE</button>
-        <button onClick={(e) => onTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'='}>=</button>
+        <button onClick={(e) => onClearTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'C'}>C</button>
+        <button onClick={(e) => onClearAllTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'CE'}>CE</button>
+        <button onClick={(e) => onProcessTrigger(e)} className='w-[11rem] p-2 bg-slate-400 hover:bg-slate-500' value={'='}>=</button>
     </div>
   )
 }

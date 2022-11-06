@@ -75,7 +75,17 @@ export const CalcScreen = () => {
 
     const remData = () => {
         let a = first.slice(0,first.length - 1);
-        calcStack.pop();
+        let temp = calcStack.length - 1;
+        if(calcStack[temp] < 10 && calcStack[temp] > -10){
+            calcStack.pop();
+        }
+        else if(calcStack[temp] >= 10 || calcStack[temp <= -10]){
+            calcStack[temp] /= 10;
+            calcStack[temp] = Math.floor(calcStack[temp]);
+        }
+        else{
+            calcStack.pop();
+        }
         setfirst(a);
     }
 
